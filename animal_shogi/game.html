@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Shogi</title>
+    <link rel="stylesheet" href="shogi.css" type="text/css" />
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- ここまで保存用 -->
+    <div class="storage">
+      <div id="9" class="koma">
+        <img src="./src/koma_img/ehi.png" alt="enemy kirin" class="koma" />
+      </div>
+      <div id="10">
+        <img src="./src/koma_img/eou.png" alt="enemy lion" class="koma" />
+      </div>
+      <div id="8" class="koma">
+        <img src="./src/koma_img/ekaku.png" alt="enemy zou" class="koma" />
+      </div>
+      <div id="7" class="koma">
+        <img src="./src/koma_img/efu.png" alt="enemy hiyoko" class="koma" />
+      </div>
+      <div id="1" class="koma">
+        <img src="./src/koma_img/fu.png" alt="hiyoko" class="koma" />
+      </div>
+      <div id="2" class="koma">
+        <img src="./src/koma_img/kaku.png" alt="zou" class="koma" />
+      </div>
+      <div id="4" class="koma">
+        <img src="./src/koma_img/ou.png" alt="lion" class="koma" />
+      </div>
+      <div id="3" class="koma">
+        <img src="./src/koma_img/hi.png" alt="kirin" class="koma" />
+      </div>
+      <div id="5" class="koma">
+        <img src="./src/koma_img/tokin.png" alt="niwatori" class="koma" />
+      </div>
+      <div id="11" class="koma">
+        <img src="./src/koma_img/etokin.png" alt="niwatori" class="koma" />
+      </div>
+    </div>
+
+    <!-- ここから表示 -->
+    <div class="container space-around">
+      <div class="teban-container row">
+        <h1>
+          <p class="teban" id="teban">先手番<br /></p>
+        </h1>
+      </div>
+      <div class="row-md-auto">
+        <div class="col-3 prison">
+          <p>後手駒台</p>
+          <div class="row cage" id="gote-komadai"></div>
+        </div>
+        <div class="col-6">
+          <table>
+            <tbody id="board" class="board">
+              <tr id="dan_index" class="row-md-auto">
+                <th></th>
+                <th class="col dan_index">3</th>
+                <th class="col dan_index">2</th>
+                <th class="col dan_index">1</th>
+              </tr>
+              <tr id="suji4" class="plate">
+                <th>4</th>
+                <td id="s4dan3" class="plate" onclick="SelectedAddress(3, 4)">
+                  <div id="9" class="koma">
+                    <img
+                      src="./src/koma_img/ehi.png"
+                      alt="enemy kirin"
+                      class="koma"
+                    />
+                  </div>
+                </td>
+                <td id="s4dan2" class="plate" onclick="SelectedAddress(2, 4)">
+                  <div id="10" class="koma">
+                    <img
+                      src="./src/koma_img/eou.png"
+                      alt="enemy lion"
+                      class="koma"
+                    />
+                  </div>
+                </td>
+                <td id="s4dan1" class="plate" onclick="SelectedAddress(1, 4)">
+                  <div id="8" class="koma">
+                    <img
+                      src="./src/koma_img/ekaku.png"
+                      alt="enemy zou"
+                      class="koma"
+                    />
+                  </div>
+                </td>
+              </tr>
+              <tr id="suji3" class="plate">
+                <th>3</th>
+                <td
+                  id="s3dan3"
+                  class="plate"
+                  onclick="SelectedAddress(3, 3)"
+                ></td>
+                <td id="s3dan2" class="plate" onclick="SelectedAddress(2, 3)">
+                  <div id="7" class="koma">
+                    <img
+                      src="./src/koma_img/efu.png"
+                      alt="enemy hiyoko"
+                      class="koma"
+                    />
+                  </div>
+                </td>
+                <td
+                  id="s3dan1"
+                  class="plate"
+                  onclick="SelectedAddress(1, 3)"
+                ></td>
+              </tr>
+              <tr id="suji2" class="plate">
+                <th>2</th>
+                <td
+                  id="s2dan3"
+                  class="plate"
+                  onclick="SelectedAddress(3, 2)"
+                ></td>
+                <td id="s2dan2" class="plate" onclick="SelectedAddress(2, 2)">
+                  <div id="1" class="koma">
+                    <img
+                      src="./src/koma_img/fu.png"
+                      alt="hiyoko"
+                      class="koma"
+                    />
+                  </div>
+                </td>
+                <td
+                  id="s2dan1"
+                  class="plate"
+                  onclick="SelectedAddress(1, 2)"
+                ></td>
+              </tr>
+              <tr id="suji1">
+                <th>1</th>
+                <td id="s1dan3" class="plate" onclick="SelectedAddress(3, 1)">
+                  <div id="2" class="koma">
+                    <img src="./src/koma_img/kaku.png" alt="zou" class="koma" />
+                  </div>
+                </td>
+                <td id="s1dan2" class="plate" onclick="SelectedAddress(2, 1)">
+                  <div id="4" class="koma">
+                    <img src="./src/koma_img/ou.png" alt="lion" class="koma" />
+                  </div>
+                </td>
+                <td id="s1dan1" class="plate" onclick="SelectedAddress(1, 1)">
+                  <div id="3" class="koma">
+                    <img src="./src/koma_img/hi.png" alt="kirin" class="koma" />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-3 prison">
+          <p>先手駒台</p>
+          <div class="row cage" id="sente-komadai"></div>
+        </div>
+      </div>
+      <div class="row-md-auto row-6 kif">
+        <textarea class="form-control" id="kif" readonly>
+開始日時：2022/08/18 10:06:00
+終了日時：2022/08/18 19:01:00
+棋戦：
+場所：
+持ち時間：6時間
+消費時間：103▲274△194
+手合割：平手
+先手：black
+後手：white
+戦型：
+手数----指手---------消費時間--
+1 ２六歩(27) (00:00/00:00:00)
+
+104 投了 (00:00/00:00:00)
+</textarea
+        >
+      </div>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>

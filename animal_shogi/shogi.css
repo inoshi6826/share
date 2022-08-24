@@ -1,0 +1,51 @@
+.koma{
+    width: 77px;
+    height: 77px;
+}
+.board{
+    background-color: darkgray;
+    background-image: url("./src/board/mokume.jpg");
+    border: solid;
+}
+.space-around{
+    margin-top: 50px;
+}
+.plate{
+    border: solid;
+    width: 81px;
+    height: 81px;
+    min-width: 81px;
+    min-height: 81px;
+}
+.prison{
+    min-height: 117px;
+    min-width: 260px;
+    max-width: 260px;
+    height: auto;
+    min-height: none;
+    background-image: url("./src/board/mokume.jpg");
+}
+.dan_index{
+    text-align: center;
+}
+.moveable-place{
+    background-color: aqua;
+}
+.teban{
+    text-align: left;
+    color: black;
+}
+.storage{
+    display: none;
+}
+.selected{
+    background-color: lightcyan;
+    margin-left: 2px;
+}
+textarea{
+    max-width: 400px;
+    height: 300px;
+}
+.kif{
+    margin: 10px;
+}
